@@ -1,0 +1,192 @@
+---
+title: "Plot a correlation"
+output: html_notebook
+---
+
+Here I'll show you how to plot a correlation in a style approporiate for a journal and I'll show you how to add color for presentations.  
+
+First, import a datafile. In this case, we'll download a datafile from OSF.  
+```{r}
+#Load the foreign package so we can import an SPSS file
+if (!require(foreign)){
+  install.packages("foreign", dependencies = TRUE)
+  require(foreign)
+}
+
+#load the SPSS file into a variable called 'dataset.' Now I can access the SPSS file just by referring to 'dataset'
+dataset = read.spss("https://osf.io/b2359/download", to.data.frame=TRUE, use.value.labels = FALSE)
+```
+
+This datafile has a number of interesting variables but two I'd like to look at today are Ascent of Humans and the stereotype Competence. Ascent of humans presents participants with the following image:  
+
+![Ascent of Humans](Ascent of Humans.png)  
+Participants use a slider to indicate how evolved they believed various social groups are. Today I'd like to focus on how evolved participants believed Black people are. In the dataset, this variable is called: AscentOfHumans_2. The code below shows the first 5 rows.  
+```{r}
+head(dataset$AscentOfHumans_2)
+```
+Higher scores indicate that the participant believes Black people are more evolved.  
+
+The stereotype competence refers to the extent that participants believe society views Black people as competent. Higher scores indicated that the participant believes society views Black people as more competent. So we should find a positive relationship between how evolved participants view Black people and how competent participants believe society views Black people.   
+
+In the dataset, this variable is called: Comp1. The code below shows the first 5 rows.
+```{r}
+head(dataset$Comp1)
+```
+In this example, we will plot the correlation between these two variables.  
+
+First, load the ggplot2() package.
+```{r}
+if (!require(ggplot2)){
+  install.packages("ggplot2", dependencies = TRUE)
+  require(ggplot2)
+}
+```
+Next, we will tell ggplot() the two variables we would like it to plot for us.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2))
+```
+This line tells ggplot() to look in the data.frame() called dataset for the variables Comp1 and AscentOfHumans_2. It puts the first variable on the x-axis and the second variable on the y-axis.  
+
+But it doesn't show any data!  
+
+We tell ggplot() to add data to the plot by telling it to add a layer. For example, we can a layer of dots representing our data by adding + geom_point() to our command.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_point()
+```
+All the dots are aligned along the values 1, 2, 3, 4, and 5 of Comp1. This makes sense because Comp1 is a discrete 1 - 5 scale. But it makes it difficult to see the shape and direction of the correlation. We can use a couple tricks to make it easier.  
+
+First, let's make the dots transparent. Then darker areas will suggest a greater number of dots in a given area.  
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_point(alpha = .6)
+```
+
+This is better, but it it still hard to see how many dots are in the darker areas.  
+
+If we make the dots bigger, this may help.
+
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_point(alpha = .6, size = 5)
+```
+
+Better but there is still too much overlap to easily see the shape of the cloud of dots. I'm starting to see that this is probably a positive correlation but it's not obvious yet.  
+
+Let's jitter the dots so we can see them better. To do this, we'll replace the geom_point() layer with a geom_jitter() layer.
+
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5)
+```
+
+Much clearer. Now to make the direction of the correlation explicit, let's add a regression line.  
+
+To do that we'll add a geom_smooth() layer. 
+
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5) + geom_smooth(method = lm)
+```
+Looking good. But a few more details to fix up to make this appropriate for publication in a journal.  
+
+First, remember journals usually publish black and white figures because authors don't want to pay more for color. So let's remove the color from our plot.  
+
+We'll add the 'color=black' command to the geom_smooth() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5) + geom_smooth(method = lm, color="black")
+```
+Next, let's change the labels so they are more meaningful to other people. We know what AscentOfHumans_2 and Comp1 mean. But no one else would.   
+
+We change the labels but adding a labs() layer to ggplot().  
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5) + geom_smooth(method = lm, color="black") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")
+```
+Next, let's add black lines for the x and y axes. We do that by adding a theme() layer and giving it the command to draw the axes.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5) + geom_smooth(method = lm, color="black") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?") + theme(axis.line = element_line(color="black", size = .5))
+```
+Next, let's get rid of the grid in the background. We'll do that by adding another command to the theme() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5) + geom_smooth(method = lm, color="black") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?") + theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank())
+```
+Finally, let's turn the grey background to white. One easy way is to add the theme_minimal() layer. You can do a web search for other pre-made themes to add to ggplot().  
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .6, size = 5) + geom_smooth(method = lm, color="black") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank())
+```
+There we go! This is a plot that would be appropriate as a figure in a published journal.  
+
+Let me also point out a couple things this plot is telling us.  
+
+1. Notice the shocking number of people that don't believe Black people are fully evolved?  
+2. Notice the the huge number of people that believe society views Black people as not very competent.  
+
+**Next time someone tries to tell you that racism is a thing of the past, think of this plot.** This data is from 2018! So many people believe Black people aren't fully evolved humans. And, that belief is related to how competent they believe society views Black people: the less evolved they believe Black people are, the less competent they believe soceity views Black people. So the 'societal' belief that Black people aren't competent actually reflects their personal belief that Black people aren't fully evolved.  
+
+Now, let's add some color to this plot like we would for a presentation. We can change the color of dots by adding a command to the geom_jitter() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="black") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank())
+```
+I chose the color #CE1141. That's "university red" and also happens to be one of the official colors of the Toronto Raptors.  
+
+Next, let's change the color of the regression line. We can do that by adding a comman to the geom_smooth() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="#061922") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank())
+```
+I changed the color from black to #061922. That is the official black of the Toronto Raptors.  Next let's change the shaded area around the regression line. The shaded area represents the 95% confidence interval around the regression line. Again, we do this by adding a command to the geom_smooth() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="#061922", fill = "#A1A1A4") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank())
+```
+It's still grey but now it's the official grey of the Toronto Raptors.  
+
+You can choose any color by looking up the 'hex' code via a quick web search.  
+
+Ok, you have the basics of changing colors. Let's try something a little more creative. Let's work with the Toronto Raptors offical 'Welcome Toronto' city colors: black and gold. Let's change the background of the plot to black. We'll do that  by adding a command to the theme() layer (plot.background = element_rect(fill = "darkblue"))
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="#061922", fill = "#A1A1A4") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"))
+```
+Of course I used the offical Toronto Raptors Black and not 'black'. You can use the names of most colors if you'd like. As you can see 'black' is darker than the hex code #061922.  
+
+It's hard to read the text now. Let's change the text to gold. We'll do that adding a command to the theme() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="#061922", fill = "#A1A1A4") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="black", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"))
+```
+Perfect, let's do the same for the axis lines. We'll update the command in the theme() layer that draws the axes.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="#061922", fill = "#A1A1A4") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="#B4975A", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"))
+```
+Now, let's change the color of the numbers on the axes. These are called axes.text and we'll change their color by adding a command to the theme() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#CE1141") + geom_smooth(method = lm, color="#061922", fill = "#A1A1A4") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="#B4975A", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"), axis.text=element_text(color = "#B4975A"))
+```
+At this point, some people might be thinking there is enough gold on this plot. Those people would be wrong.  Let's make the dots gold as well. Do you remember how to do that?
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#B4975A") + geom_smooth(method = lm, color="#061922", fill = "#A1A1A4") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="#B4975A", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"), axis.text=element_text(color = "#B4975A"))
+```
+You might be thinking: Changing the regression line to gold would be too much, for sure! I kinda agree. But if we make the line 'dashed' then I think the gold would be fine. Let's add those commands to the geom_smooth() layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#B4975A") + geom_smooth(method = lm, color="#B4975A", fill = "#A1A1A4", linetype="dashed") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="#B4975A", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"), axis.text=element_text(color = "#B4975A"))
+```
+Perfect. *Welcome* Toronto!   
+
+At this point, you should understand how the change the color of every component of a plot.  
+
+Let's add one more detail to the plot. Durign a presentation, the audience might appreciate being able to see the regression coefficient instead of having to estimate it from the shape of the cloud and the direction of the regression line.  
+
+We can use base R to calculate the regression coefficient like this:
+```{r}
+cor(dataset$Comp1,dataset$AscentOfHumans_2, method="pearson", use="pairwise")
+```
+So our correlation is positive but small. Let's tell our audience this information by adding an annotation layer: annotate()
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#B4975A") + geom_smooth(method = lm, color="#B4975A", fill = "#A1A1A4", linetype="dashed") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="#B4975A", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"), axis.text=element_text(color = "#B4975A")) + annotate("text", label = "r = .22", x = 5, y = 25, color="#B4975A")
+```
+We tell the annotate layer we would like to add a 'text' annotation. You can do a web search for the other types of annotations that are possible. Then we tell the annotate layer what the text should be: r = .22. Then we tell the annotate layer the location the text should appear at. The numbers refer to locations on the x and y axes. So x = 5 means put this label where the x axis equals 5. y = 25 means put this label where the y axis equals 25. Finally, we set the color to gold (of course).  
+
+The text is a little small though, so let's make it bigger. We'll do that by addign a size command to the annotate layer.
+```{r}
+ggplot(dataset, aes(Comp1, AscentOfHumans_2)) + geom_jitter(alpha = .4, size = 5, color = "#B4975A") + geom_smooth(method = lm, color="#B4975A", fill = "#A1A1A4", linetype="dashed") + labs(x = "How competent you believe society views Black people", y = "How evolved do you believe Black people are?")  + theme_minimal()+ theme(axis.line = element_line(color="#B4975A", size = .5), panel.grid = element_blank(), plot.background = element_rect(fill = "#061922"), axis.title = element_text(color="#B4975A"), axis.text=element_text(color = "#B4975A")) + annotate("text", label = "r = .22", x = 5, y = 25, color="#B4975A", size=10)
+```
+Now you should know enough about how ggplot() works to use a web search to find out how to do whatever it is you want to do.
+
+
+
+
+
+
+

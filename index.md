@@ -6,6 +6,7 @@
 # Getting Started in R
 
 * [Import your first dataset and play around with it!](How to extract sample information from the PPIR datafile.nb.html)
+* [Create a composite variable in R](How to Create a Composite Variable.nb.html)
 
 
 # Correlations in R
@@ -13,3 +14,11 @@
 * [How to run a correlation test in R](Correlations in R.nb.html)
 * [How to plot a correlation in R](Plot a correlation.nb.html)
 
+# *t*-tests in R
+
+* [How to run a paired samples t-test in R](Paired Samples T-tests with R.nb.html)
+
+# ANOVAs in R
+
+* [How to run a repeated measures ANOVA in R](Within Groups ANOVA with R.nb.html)
+* [How to plot group means in R](Plot Group Means.nb.html)

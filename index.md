@@ -3,7 +3,14 @@
 1. R is a free statistical analysis computer language with great graphing capabilities. R was developed by Ross Ihaka and Robert Gentleman at the University of Aukland in New Zealand. [You can download R here](https://www.r-project.org)
 2. One of the best ways to work with R is through RStudio. RStudio is an integrated development environment (IDE). It provides tools for creating code written in R and also for running R code. [You can download RStudio here.](https://www.rstudio.com/products/rstudio/download/) Download the free RStudio Desktop.
 
-# Getting Started in R
+# Resources for learning R
+
+* A great place to start learning R is this [Fundamentals of R workshop](https://osf.io/a2x7j/) created by Drs. Elizabeth Page-Gould and Alexander Danvers
+* [This is a tutorial on getting started in R](http://personality-project.org/r/psych/HowTo/getting_started.pdf) by Dr. William Revelle which focuses on the 'psych' package
+* [R Cheatsheets](https://www.rstudio.com/resources/cheatsheets/). Keep these handy!
+* Graphical resourcdes (https://www.rstudio.com/resources/cheatsheets/)
+
+# Working with R Notebooks
 
 * [Import your first dataset and play around with it!](How to extract sample information from the PPIR datafile.nb.html)
 * [Create a composite variable in R](How to Create a Composite Variable.nb.html)

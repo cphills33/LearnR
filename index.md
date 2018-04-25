@@ -10,10 +10,11 @@
 * [R Cheatsheets](https://www.rstudio.com/resources/cheatsheets/). Keep these handy!
 * Graphical resourcdes (https://www.rstudio.com/resources/cheatsheets/)
 
-# Working with R Notebooks
+# Getting started with R and R Notebooks
 
-* [Import your first dataset and play around with it!](How to extract sample information from the PPIR datafile.nb.html)
-* [Create a composite variable in R](How to Create a Composite Variable.nb.html)
+* How to create and use an R Notebook
+* [How to find information about your sample in R](How to extract sample information from the PPIR datafile.nb.html)
+* [How to create a composite variable in R](How to Create a Composite Variable.nb.html)
 
 
 # Correlations in R

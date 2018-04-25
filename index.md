@@ -8,7 +8,7 @@
 * A great place to start learning R is this [Fundamentals of R workshop](https://osf.io/a2x7j/) created by Drs. Elizabeth Page-Gould and Alexander Danvers
 * [This is a tutorial on getting started in R](http://personality-project.org/r/psych/HowTo/getting_started.pdf) by Dr. William Revelle which focuses on the 'psych' package
 * [R Cheatsheets](https://www.rstudio.com/resources/cheatsheets/). Keep these handy!
-* Graphical resourcdes (https://www.rstudio.com/resources/cheatsheets/)
+* [Graphical resources](https://www.rstudio.com/resources/cheatsheets/)
 
 # Getting started with R and R Notebooks
 

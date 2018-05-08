@@ -12,7 +12,7 @@
 
 # Getting started with R and R Notebooks
 
-* How to create and use an R Notebook
+* [My first R Notebook](My First R Notebook.nb.html)
 * [How to find information about your sample in R](How to extract sample information from the PPIR datafile.nb.html)
 * [How to create a composite variable in R](How to Create a Composite Variable.nb.html)
 

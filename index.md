@@ -12,9 +12,11 @@
 
 # Getting started with R and R Notebooks
 
+* [Learn the basics of R with Swirl](http://swirlstats.com)
 * [My first R Notebook](My First R Notebook.nb.html)
 * [How to find information about your sample in R](How to extract sample information from the PPIR datafile.nb.html)
 * [How to create a composite variable in R](How to Create a Composite Variable.nb.html)
+* [Messing around with the star wars data from 538.com]()
 
 
 # Correlations in R

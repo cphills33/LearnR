@@ -31,4 +31,5 @@
 # ANOVAs in R
 
 * [How to run a repeated measures ANOVA in R](Within Groups ANOVA with R.nb.html)
+* [How to run Type 3 Sum of Squares ANOVA in R](Type 3 SS ANOVA Notebook.nb.html)
 * [How to plot group means in R](Plot Group Means.nb.html)

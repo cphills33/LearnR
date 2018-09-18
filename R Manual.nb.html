@@ -279,7 +279,8 @@ div.tocify {
 <h1>How to install and load pacakges</h1>
 <div id="haven" class="section level2">
 <h2>Haven</h2>
-<p>Haven contains functions that lets R import SPSS, SAS, Stata, and other foreign files</p>
+<p>Haven contains functions that lets R import SPSS, SAS, Stata, and other foreign files.</p>
+<p>Documentation can be viewed <a href="https://haven.tidyverse.org">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDaGVjayBpZiBoYXZlbiBpcyBhbHJlYWR5IGluc3RhbGxlZCBhbmQgaWYgaXQgaXMsIGxvYWQgaXQuXG5pZiAoIXJlcXVpcmUoaGF2ZW4pKXtcbiAgIyBJZiBpdCdzIG5vdCBpbnRhbGxlZCwgdGhlbiB0ZWxsIFIgdG8gaW5zdGFsbCBpdC5cbiAgaW5zdGFsbC5wYWNrYWdlcyhcImhhdmVuXCIsIGRlcGVuZGVuY2llcyA9IFRSVUUpXG4gICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuXG4gIGxpYnJhcnkoaGF2ZW4pXG59XG5gYGAifQ== -->
@@ -293,11 +294,33 @@ if (!require(haven)){
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+</div>
+<div id="import-an-spss-file" class="section level1">
+<h1>Import an SPSS file</h1>
+<p>Use the read_sav() function from the Haven package to import an SPSS file into R.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCA8LSByZWFkX3NhdihcIkV4YW1wbGVEYXRhc2V0XCIpXG5gYGAifQ== -->
+<pre class="r"><code>dataset &lt;- read_sav(&quot;ExampleDataset&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="view-a-dataset" class="section level1">
+<h1>View a dataset</h1>
+<p>Use the View() function to look at your dataset like you would in SPSS or Excel</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmlldyhkYXRhc2V0KVxuYGBgIn0= -->
+<pre class="r"><code>View(dataset)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
-</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBNYW51YWwiCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazoKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCi0tLQpUaGlzIG1hbnVhbCBpcyBhbiBSIGNoZWF0c2hlZXQgZm9yIFBzeWNob2xvZ3kgc3R1ZGVudHMuIApJdCBleHBsYWlucyBob3cgdG8gY29tcGxldGUgbWFueSB0YXNrcyBwc3ljaG9sb2dpc3RzIGNvbW1vbmx5IGRvLgpDbGljayB0aHJvdWdoIHRoZSB0YWJsZSBvZiBjb250ZW50cyB0byBxdWlja2x5IGZpbmQgdGhlIHRhc2sgeW91IG5lZWQuCgojIEhvdyB0byBpbnN0YWxsIGFuZCBsb2FkIHBhY2FrZ2VzIHsudGFic2V0fQoKIyMgSGF2ZW4KSGF2ZW4gY29udGFpbnMgZnVuY3Rpb25zIHRoYXQgbGV0cyBSIGltcG9ydCBTUFNTLCBTQVMsIFN0YXRhLCBhbmQgb3RoZXIgZm9yZWlnbiBmaWxlcwpgYGB7cn0KIyBDaGVjayBpZiBoYXZlbiBpcyBhbHJlYWR5IGluc3RhbGxlZCBhbmQgaWYgaXQgaXMsIGxvYWQgaXQuCmlmICghcmVxdWlyZShoYXZlbikpewogICMgSWYgaXQncyBub3QgaW50YWxsZWQsIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuCiAgaW5zdGFsbC5wYWNrYWdlcygiaGF2ZW4iLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuCiAgbGlicmFyeShoYXZlbikKfQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBNYW51YWwiCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazoKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCi0tLQpUaGlzIG1hbnVhbCBpcyBhbiBSIGNoZWF0c2hlZXQgZm9yIFBzeWNob2xvZ3kgc3R1ZGVudHMuIApJdCBleHBsYWlucyBob3cgdG8gY29tcGxldGUgbWFueSB0YXNrcyBwc3ljaG9sb2dpc3RzIGNvbW1vbmx5IGRvLgpDbGljayB0aHJvdWdoIHRoZSB0YWJsZSBvZiBjb250ZW50cyB0byBxdWlja2x5IGZpbmQgdGhlIHRhc2sgeW91IG5lZWQuCgojIEhvdyB0byBpbnN0YWxsIGFuZCBsb2FkIHBhY2FrZ2VzIHsudGFic2V0fQoKIyMgSGF2ZW4KSGF2ZW4gY29udGFpbnMgZnVuY3Rpb25zIHRoYXQgbGV0cyBSIGltcG9ydCBTUFNTLCBTQVMsIFN0YXRhLCBhbmQgb3RoZXIgZm9yZWlnbiBmaWxlcy4KCkRvY3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly9oYXZlbi50aWR5dmVyc2Uub3JnKQpgYGB7cn0KIyBDaGVjayBpZiBoYXZlbiBpcyBhbHJlYWR5IGluc3RhbGxlZCBhbmQgaWYgaXQgaXMsIGxvYWQgaXQuCmlmICghcmVxdWlyZShoYXZlbikpewogICMgSWYgaXQncyBub3QgaW50YWxsZWQsIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuCiAgaW5zdGFsbC5wYWNrYWdlcygiaGF2ZW4iLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuCiAgbGlicmFyeShoYXZlbikKfQpgYGAKCiMgSW1wb3J0IGFuIFNQU1MgZmlsZQpVc2UgdGhlIHJlYWRfc2F2KCkgZnVuY3Rpb24gZnJvbSB0aGUgSGF2ZW4gcGFja2FnZSB0byBpbXBvcnQgYW4gU1BTUyBmaWxlIGludG8gUi4KYGBge3J9CmRhdGFzZXQgPC0gcmVhZF9zYXYoIkV4YW1wbGVEYXRhc2V0IikKYGBgCgojIFZpZXcgYSBkYXRhc2V0ClVzZSB0aGUgVmlldygpIGZ1bmN0aW9uIHRvIGxvb2sgYXQgeW91ciBkYXRhc2V0IGxpa2UgeW91IHdvdWxkIGluIFNQU1Mgb3IgRXhjZWwKYGBge3J9ClZpZXcoZGF0YXNldCkKYGBgCgo=</div>
 
 
 </div>

@@ -13,7 +13,9 @@ Click through the table of contents to quickly find the task you need.
 # How to install and load pacakges {.tabset}
 
 ## Haven
-Haven contains functions that lets R import SPSS, SAS, Stata, and other foreign files
+Haven contains functions that lets R import SPSS, SAS, Stata, and other foreign files.
+
+Documentation can be viewed [here](https://haven.tidyverse.org)
 ```{r}
 # Check if haven is already installed and if it is, load it.
 if (!require(haven)){
@@ -22,5 +24,17 @@ if (!require(haven)){
   # Once it's installed, tell R to load it.
   library(haven)
 }
+```
+
+# Import an SPSS file
+Use the read_sav() function from the Haven package to import an SPSS file into R.
+```{r}
+dataset <- read_sav("ExampleDataset")
+```
+
+# View a dataset
+Use the View() function to look at your dataset like you would in SPSS or Excel
+```{r}
+View(dataset)
 ```
 

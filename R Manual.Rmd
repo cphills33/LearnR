@@ -12,3 +12,15 @@ Click through the table of contents to quickly find the task you need.
 
 # How to install and load pacakges {.tabset}
 
+## Haven
+Haven contains functions that lets R import SPSS, SAS, Stata, and other foreign files
+```{r}
+# Check if haven is already installed and if it is, load it.
+if (!require(haven)){
+  # If it's not intalled, then tell R to install it.
+  install.packages("haven", dependencies = TRUE)
+  # Once it's installed, tell R to load it.
+  library(haven)
+}
+```
+

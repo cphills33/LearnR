@@ -1,0 +1,14 @@
+---
+title: "R Manual"
+output: 
+  html_notebook:
+    theme: paper
+    toc: yes
+    toc_float: yes
+---
+This manual is an R cheatsheet for Psychology students. 
+It explains how to complete many tasks psychologists commonly do.
+Click through the table of contents to quickly find the task you need.
+
+# How to install and load pacakges {.tabset}
+

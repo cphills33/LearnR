@@ -63,6 +63,10 @@ dataset %>%
 ```
 
 ## Remove practice runs
+Use the slice() funciton to remove rows.
+
+Put the range of rows you'd like to remove with minus signs in front.
+
 ```{r}
 dataset %>% 
   slice(-1:-3) -> dataset

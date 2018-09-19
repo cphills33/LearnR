@@ -295,20 +295,39 @@ if (!require(haven)){
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+<div id="tidyverse" class="section level2">
+<h2>Tidyverse</h2>
+<p>Tidyverse contains many functions useful to cleaning, tidying, and manipulating data</p>
+<p>Dcoumentation can be viewed <a href="https://www.tidyverse.org">here</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKCFyZXF1aXJlKHRpZHl2ZXJzZSkpe1xuICAjIElmIGl0J3Mgbm90IGludGFsbGVkLCB0aGVuIHRlbGwgUiB0byBpbnN0YWxsIGl0LlxuICBpbnN0YWxsLnBhY2thZ2VzKFwidGlkeXZlcnNlXCIsIGRlcGVuZGVuY2llcyA9IFRSVUUpXG4gICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuXG4gIGxpYnJhcnkodGlkeXZlcnNlKVxufVxuYGBgIn0= -->
+<pre class="r"><code>if (!require(tidyverse)){
+  # If it's not intalled, then tell R to install it.
+  install.packages(&quot;tidyverse&quot;, dependencies = TRUE)
+  # Once it's installed, tell R to load it.
+  library(tidyverse)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
 </div>
 <div id="import-an-spss-file" class="section level1">
 <h1>Import an SPSS file</h1>
 <p>Use the read_sav() function from the Haven package to import an SPSS file into R.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCA8LSByZWFkX3NhdihcIkV4YW1wbGVEYXRhc2V0XCIpXG5gYGAifQ== -->
-<pre class="r"><code>dataset &lt;- read_sav(&quot;ExampleDataset&quot;)</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCA8LSByZWFkX3NhdihcImh0dHBzOi8vb3NmLmlvLzk4bXQ2L2Rvd25sb2FkXCIpXG5gYGAifQ== -->
+<pre class="r"><code>dataset &lt;- read_sav(&quot;https://osf.io/98mt6/download&quot;)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
-<div id="view-a-dataset" class="section level1">
-<h1>View a dataset</h1>
+<div id="clean-dataset" class="section level1 tabset">
+<h1>Clean dataset</h1>
+<div id="view-dataset" class="section level2">
+<h2>View dataset</h2>
 <p>Use the View() function to look at your dataset like you would in SPSS or Excel</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -317,10 +336,36 @@ if (!require(haven)){
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="remove-columns" class="section level2">
+<h2>Remove columns</h2>
+<p>Use the Select() function to de-select a column.</p>
+<p>Put ‘-’ before the column name to remove a column (you can list more than one column).</p>
+<p>Just type the column name to keep only that column (you can list more than one column).</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgc2VsZWN0KC1JUEFkZHJlc3MpIC0+IGRhdGFzZXRcbmBgYCJ9 -->
+<pre class="r"><code>dataset %&gt;%
+  select(-IPAddress) -&gt; dataset</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="remove-practice-runs" class="section level2">
+<h2>Remove practice runs</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiUgXG4gIHNsaWNlKC0xOi0zKSAtPiBkYXRhc2V0XG5gYGAifQ== -->
+<pre class="r"><code>dataset %&gt;% 
+  slice(-1:-3) -&gt; dataset</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBNYW51YWwiCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazoKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCi0tLQpUaGlzIG1hbnVhbCBpcyBhbiBSIGNoZWF0c2hlZXQgZm9yIFBzeWNob2xvZ3kgc3R1ZGVudHMuIApJdCBleHBsYWlucyBob3cgdG8gY29tcGxldGUgbWFueSB0YXNrcyBwc3ljaG9sb2dpc3RzIGNvbW1vbmx5IGRvLgpDbGljayB0aHJvdWdoIHRoZSB0YWJsZSBvZiBjb250ZW50cyB0byBxdWlja2x5IGZpbmQgdGhlIHRhc2sgeW91IG5lZWQuCgojIEhvdyB0byBpbnN0YWxsIGFuZCBsb2FkIHBhY2FrZ2VzIHsudGFic2V0fQoKIyMgSGF2ZW4KSGF2ZW4gY29udGFpbnMgZnVuY3Rpb25zIHRoYXQgbGV0cyBSIGltcG9ydCBTUFNTLCBTQVMsIFN0YXRhLCBhbmQgb3RoZXIgZm9yZWlnbiBmaWxlcy4KCkRvY3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly9oYXZlbi50aWR5dmVyc2Uub3JnKQpgYGB7cn0KIyBDaGVjayBpZiBoYXZlbiBpcyBhbHJlYWR5IGluc3RhbGxlZCBhbmQgaWYgaXQgaXMsIGxvYWQgaXQuCmlmICghcmVxdWlyZShoYXZlbikpewogICMgSWYgaXQncyBub3QgaW50YWxsZWQsIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuCiAgaW5zdGFsbC5wYWNrYWdlcygiaGF2ZW4iLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuCiAgbGlicmFyeShoYXZlbikKfQpgYGAKCiMgSW1wb3J0IGFuIFNQU1MgZmlsZQpVc2UgdGhlIHJlYWRfc2F2KCkgZnVuY3Rpb24gZnJvbSB0aGUgSGF2ZW4gcGFja2FnZSB0byBpbXBvcnQgYW4gU1BTUyBmaWxlIGludG8gUi4KYGBge3J9CmRhdGFzZXQgPC0gcmVhZF9zYXYoIkV4YW1wbGVEYXRhc2V0IikKYGBgCgojIFZpZXcgYSBkYXRhc2V0ClVzZSB0aGUgVmlldygpIGZ1bmN0aW9uIHRvIGxvb2sgYXQgeW91ciBkYXRhc2V0IGxpa2UgeW91IHdvdWxkIGluIFNQU1Mgb3IgRXhjZWwKYGBge3J9ClZpZXcoZGF0YXNldCkKYGBgCgo=</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBNYW51YWwiCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazoKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCi0tLQpUaGlzIG1hbnVhbCBpcyBhbiBSIGNoZWF0c2hlZXQgZm9yIFBzeWNob2xvZ3kgc3R1ZGVudHMuIApJdCBleHBsYWlucyBob3cgdG8gY29tcGxldGUgbWFueSB0YXNrcyBwc3ljaG9sb2dpc3RzIGNvbW1vbmx5IGRvLgpDbGljayB0aHJvdWdoIHRoZSB0YWJsZSBvZiBjb250ZW50cyB0byBxdWlja2x5IGZpbmQgdGhlIHRhc2sgeW91IG5lZWQuCgojIEhvdyB0byBpbnN0YWxsIGFuZCBsb2FkIHBhY2FrZ2VzIHsudGFic2V0fQoKIyMgSGF2ZW4KSGF2ZW4gY29udGFpbnMgZnVuY3Rpb25zIHRoYXQgbGV0cyBSIGltcG9ydCBTUFNTLCBTQVMsIFN0YXRhLCBhbmQgb3RoZXIgZm9yZWlnbiBmaWxlcy4KCkRvY3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly9oYXZlbi50aWR5dmVyc2Uub3JnKQpgYGB7cn0KIyBDaGVjayBpZiBoYXZlbiBpcyBhbHJlYWR5IGluc3RhbGxlZCBhbmQgaWYgaXQgaXMsIGxvYWQgaXQuCmlmICghcmVxdWlyZShoYXZlbikpewogICMgSWYgaXQncyBub3QgaW50YWxsZWQsIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuCiAgaW5zdGFsbC5wYWNrYWdlcygiaGF2ZW4iLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuCiAgbGlicmFyeShoYXZlbikKfQpgYGAKCiMjIFRpZHl2ZXJzZQpUaWR5dmVyc2UgY29udGFpbnMgbWFueSBmdW5jdGlvbnMgdXNlZnVsIHRvIGNsZWFuaW5nLCB0aWR5aW5nLCBhbmQgbWFuaXB1bGF0aW5nIGRhdGEKCkRjb3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly93d3cudGlkeXZlcnNlLm9yZykKCmBgYHtyfQppZiAoIXJlcXVpcmUodGlkeXZlcnNlKSl7CiAgaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIiwgZGVwZW5kZW5jaWVzID0gVFJVRSkKICBsaWJyYXJ5KHRpZHl2ZXJzZSkKfQpgYGAKCiMgSW1wb3J0IGFuIFNQU1MgZmlsZQpVc2UgdGhlIHJlYWRfc2F2KCkgZnVuY3Rpb24gZnJvbSB0aGUgSGF2ZW4gcGFja2FnZSB0byBpbXBvcnQgYW4gU1BTUyBmaWxlIGludG8gUi4KYGBge3J9CmRhdGFzZXQgPC0gcmVhZF9zYXYoImh0dHBzOi8vb3NmLmlvLzk4bXQ2L2Rvd25sb2FkIikKYGBgCgojIENsZWFuIGRhdGFzZXQgey50YWJzZXR9CgojIyBWaWV3IGRhdGFzZXQKVXNlIHRoZSBWaWV3KCkgZnVuY3Rpb24gdG8gbG9vayBhdCB5b3VyIGRhdGFzZXQgbGlrZSB5b3Ugd291bGQgaW4gU1BTUyBvciBFeGNlbApgYGB7cn0KVmlldyhkYXRhc2V0KQpgYGAKIyMgUmVtb3ZlIGNvbHVtbnMKVXNlIHRoZSBTZWxlY3QoKSBmdW5jdGlvbiB0byBkZS1zZWxlY3QgYSBjb2x1bW4uCgpQdXQgJy0nIGJlZm9yZSB0aGUgY29sdW1uIG5hbWUgdG8gcmVtb3ZlIGEgY29sdW1uICh5b3UgY2FuIGxpc3QgbW9yZSB0aGFuIG9uZSBjb2x1bW4pLgoKSnVzdCB0eXBlIHRoZSBjb2x1bW4gbmFtZSB0byBrZWVwIG9ubHkgdGhhdCBjb2x1bW4gKHlvdSBjYW4gbGlzdCBtb3JlIHRoYW4gb25lIGNvbHVtbikuCmBgYHtyfQpkYXRhc2V0ICU+JQogIHNlbGVjdCgtSVBBZGRyZXNzKSAtPiBkYXRhc2V0CmBgYAoKIyMgUmVtb3ZlIHByYWN0aWNlIHJ1bnMKYGBge3J9CmRhdGFzZXQgJT4lIAogIHNsaWNlKC0xOi0zKSAtPiBkYXRhc2V0CmBgYAoK</div>
 
 
 </div>

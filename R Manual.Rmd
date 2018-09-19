@@ -26,15 +26,45 @@ if (!require(haven)){
 }
 ```
 
+## Tidyverse
+Tidyverse contains many functions useful to cleaning, tidying, and manipulating data
+
+Dcoumentation can be viewed [here](https://www.tidyverse.org)
+
+```{r}
+if (!require(tidyverse)){
+  install.packages("tidyverse", dependencies = TRUE)
+  library(tidyverse)
+}
+```
+
 # Import an SPSS file
 Use the read_sav() function from the Haven package to import an SPSS file into R.
 ```{r}
-dataset <- read_sav("ExampleDataset")
+dataset <- read_sav("https://osf.io/98mt6/download")
 ```
 
-# View a dataset
+# Clean dataset {.tabset}
+
+## View dataset
 Use the View() function to look at your dataset like you would in SPSS or Excel
 ```{r}
 View(dataset)
+```
+## Remove columns
+Use the Select() function to de-select a column.
+
+Put '-' before the column name to remove a column (you can list more than one column).
+
+Just type the column name to keep only that column (you can list more than one column).
+```{r}
+dataset %>%
+  select(-IPAddress) -> dataset
+```
+
+## Remove practice runs
+```{r}
+dataset %>% 
+  slice(-1:-3) -> dataset
 ```
 

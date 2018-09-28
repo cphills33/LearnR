@@ -277,6 +277,8 @@ div.tocify {
 <p>This manual is an R cheatsheet for Psychology students. It explains how to complete many tasks psychologists commonly do. Click through the table of contents to quickly find the task you need.</p>
 <div id="how-to-install-and-load-pacakges" class="section level1 tabset">
 <h1>How to install and load pacakges</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hndMg7ldBJk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
 <div id="haven" class="section level2">
 <h2>Haven</h2>
 <p>Haven contains functions that lets R import SPSS, SAS, Stata, and other foreign files.</p>
@@ -301,7 +303,7 @@ if (!require(haven)){
 <div id="tidyverse" class="section level2">
 <h2>Tidyverse</h2>
 <p>Tidyverse contains many functions useful to cleaning, tidying, and manipulating data</p>
-<p>Dcoumentation can be viewed <a href="https://www.tidyverse.org">here</a></p>
+<p>Documentation can be viewed <a href="https://www.tidyverse.org">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKCFyZXF1aXJlKHRpZHl2ZXJzZSkpe1xuICBpbnN0YWxsLnBhY2thZ2VzKFwidGlkeXZlcnNlXCIsIGRlcGVuZGVuY2llcyA9IFRSVUUpXG4gIGxpYnJhcnkodGlkeXZlcnNlKVxufVxuYGBgIn0= -->
@@ -342,11 +344,37 @@ if (!require(haven)){
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+<div id="psych" class="section level2">
+<h2>psych</h2>
+<p>Summarytools provide useful functions for summarizing and visualizing data</p>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/summarytools/versions/0.8.5">here</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKCFyZXF1aXJlKHBzeWNoKSl7XG4gIGluc3RhbGwucGFja2FnZXMoXCJwc3ljaFwiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKVxuICByZXF1aXJlKHBzeWNoKVxufVxuYGBgIn0= -->
+<pre class="r"><code>if (!require(psych)){
+  install.packages(&quot;psych&quot;, dependencies = TRUE)
+  require(psych)
+}</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBwc3ljaFxuXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYcHN5Y2jigJlcblxuVGhlIGZvbGxvd2luZyBvYmplY3RzIGFyZSBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmdncGxvdDLigJk6XG5cbiAgICAlKyUsIGFscGhhXG4ifQ== -->
+<pre><code>Loading required package: psych
+
+Attaching package: ‘psych’
+
+The following objects are masked from ‘package:ggplot2’:
+
+    %+%, alpha</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
 </div>
 <div id="import-an-spss-file" class="section level1">
 <h1>Import an SPSS file</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8zpHc9U8HIY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
 <p>Use the read_sav() function from the Haven package to import an SPSS file into R.</p>
-<p>Dcoumentation can be viewed <a href="https://www.rdocumentation.org/packages/haven/versions/1.1.2/topics/read_spss">here</a></p>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/haven/versions/1.1.2/topics/read_spss">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCA8LSByZWFkX3NhdihcImh0dHBzOi8vb3NmLmlvLzk4bXQ2L2Rvd25sb2FkXCIpXG5gYGAifQ== -->
@@ -357,10 +385,12 @@ if (!require(haven)){
 </div>
 <div id="clean-dataset" class="section level1 tabset">
 <h1>Clean dataset</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gFALxkGfPQQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
 <div id="view-dataset" class="section level2">
 <h2>View dataset</h2>
 <p>Use the View() function to look at your dataset like you would in SPSS or Excel</p>
-<p>Dcoumentation can be viewed <a href="https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/View">here</a></p>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/View">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuVmlldyhkYXRhc2V0KVxuYGBgIn0= -->
@@ -374,7 +404,7 @@ if (!require(haven)){
 <p>Use the Select() function to de-select a column.</p>
 <p>Put ‘-’ before the column name to remove a column (you can list more than one column).</p>
 <p>Just type the column name to keep only that column (you can list more than one column).</p>
-<p>Dcoumentation can be viewed <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/select">here</a></p>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/select">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgc2VsZWN0KC1JUEFkZHJlc3MpIC0+IGRhdGFzZXRcbmBgYCJ9 -->
@@ -388,7 +418,7 @@ if (!require(haven)){
 <h2>Remove practice runs</h2>
 <p>Use the slice() funciton to remove rows.</p>
 <p>Put the range of rows you’d like to remove with minus signs in front.</p>
-<p>Dcoumentation can be viewed <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/slice">here</a></p>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/slice">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiUgXG4gIHNsaWNlKC0xOi0zKSAtPiBkYXRhc2V0XG5gYGAifQ== -->
@@ -399,11 +429,13 @@ if (!require(haven)){
 <!-- rnb-text-begin -->
 </div>
 </div>
-<div id="summarize-variables" class="section level1">
+<div id="summarize-variables" class="section level1 tabset">
 <h1>Summarize variables</h1>
 <div id="use-dfsummary-function-from-summarytools-package-to-summarize-and-visualize-data" class="section level2">
 <h2>Use dfSummary function from summarytools package to summarize and visualize data</h2>
-<p>Dcoumentation can be viewed <a href="https://www.rdocumentation.org/packages/summarytools/versions/0.8.5/topics/dfSummary">here</a></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/L8IwS7shipg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/summarytools/versions/0.8.5/topics/dfSummary">here</a></p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0ZpcnN0IHNlbGVjdCB0aGUgdmFyaWFibGVzIHlvdSdkIGxpa2UgdG8gc3VtbWFyaXplXG5kYXRhc2V0ICU+JVxuICBzZWxlY3QgKENvaW5GbGlwLCBGRk1fNSwgUG90dGVyMykgLT4gZXhhbXBsZURGXG4jVGhlbiBwcmludCB0aGVtIHdpdGggdGhpcyBjb21tYW5kXG5wcmludChkZlN1bW1hcnkoZXhhbXBsZURGLCBncmFwaC5tYWduaWYgPSAuNzUpLCBtZXRob2QgPSAncmVuZGVyJylcbmBgYCJ9 -->
@@ -498,11 +530,157 @@ IQR (CV) : 1 (0.31)</td>
 
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+</div>
+<div id="use-the-describe-function-of-the-psych-package-to-summarize-data" class="section level2">
+<h2>Use the describe() function of the psych package to summarize data</h2>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K83_tYXqFVo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+</iframe>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/psych/versions/1.8.4/topics/describe">here</a></p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0ZpcnN0IHNlbGVjdCB0aGUgdmFyaWFibGVzIHlvdSdkIGxpa2UgdG8gc3VtbWFyaXplXG5kYXRhc2V0ICU+JVxuICBzZWxlY3QgKENvaW5GbGlwLCBGRk1fNSwgUG90dGVyMykgJT4lXG4gIGRlc2NyaWJlKClcbmBgYCJ9 -->
+<pre class="r"><code>#First select the variables you'd like to summarize
+dataset %&gt;%
+  select (CoinFlip, FFM_5, Potter3) %&gt;%
+  describe()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbImRhdGEuZnJhbWUiXSwibmNvbCI6MTMsIm5yb3ciOjN9LCJyZGYiOiJINHNJQUFBQUFBQUFBM1ZTTVV3Yk1SUjE3bklrbkFoQ2FtWm1PaVFxclRvaVJ3S0ZxVkxMeEZBSm1jU2hWdTU4a2M4QjFDNWRtSmxoWlk5VXFRTlRJNEc2dFROU0t4V3hJY0xRb1ZFRlVxRzJ6ejhCdDN6SjUrLzMvL1A3Ly90V2xsYWZocXNoUXNoRGZwQkRucS9jdktjK09aUkhrM3JmUnNoL3BKeVNXdE5xK2Znbk1sWkRkaThpTUJPdkxWdDhDZmIzOStMNDF4ZHRYMnRUTFdQNDZtajM5ZHp3ZUJUL1VYNTd0dHdyNC9PTWhFOVZWS1g4b3o5enY0N3gvU2I5Y1czS1hQTU9YeTkwRGs3Q0JZaERNdjdkTTBMSTVUdjl3WG5VSC9SZGZrQWYrTVgvOC9GRlZrLy9jOVozLy92TzdPR3J3UTdFKzhNOWJmdjliemJ2anpPZkR3Tk51TVNmTkd2MkVIL00rblFlTHVBa3BxbHk5SmhLRnN4dkVwSEN5M0lBWTByQTk5S205U1ppMm1RanZDQUZpeFZpajM1TXhpN2pZM1FiMUFYaEd4UUUwamJkc242eDNSVXlTVms2RXFSTzRaTWkyYXJlTGQ0SDZtTENlRDFpSGRDbzExK3NQWWNDWHlaU1V2SE1uVUlqSWlsY0JHRFlKSkpVVzBKcHFOT05ReWtrSGNrU3JraWUvdThEaDV3VERqRFQ1YnJhWnFYeHBzdmJsZmtuV3NIRXMxV3l1My9ITDJXYTNxMjlLNENoVTc3Qk9Nd3RpTWc2amV4aFdvM0ZUS1hhRVl4TGFFV2hhVlVta2tCZTJFZ2lRRXh6Nk9Zdk1FV3AxdVlEQUFBPSJ9 -->
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["vars"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["mean"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["sd"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["median"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["trimmed"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["mad"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["min"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["max"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["range"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["skew"],"name":[11],"type":["dbl"],"align":["right"]},{"label":["kurtosis"],"name":[12],"type":["dbl"],"align":["right"]},{"label":["se"],"name":[13],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"46","3":"1.30","4":"0.47","5":"1","6":"1.26","7":"0.00","8":"1","9":"2","10":"1","11":"0.82","12":"-1.35","13":"0.07","_rn_":"CoinFlip"},{"1":"2","2":"40","3":"3.55","4":"0.75","5":"4","6":"3.56","7":"1.48","8":"2","9":"5","10":"3","11":"-0.17","12":"-0.41","13":"0.12","_rn_":"FFM_5"},{"1":"3","2":"41","3":"1.61","4":"0.49","5":"2","6":"1.64","7":"0.00","8":"1","9":"2","10":"1","11":"-0.43","12":"-1.86","13":"0.08","_rn_":"Potter3"}],"options":{"columns":{"min":{},"max":[10],"total":[13]},"rows":{"min":[10],"max":[10],"total":[3]},"pages":{}}}
+  </script>
+</div>
+<!-- rnb-frame-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="create-composite-variable" class="section level1 tabset">
+<h1>Create Composite Variable</h1>
+<div id="psych-1" class="section level2 tabset">
+<h2>Psych</h2>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/psych/versions/1.8.4/topics/scoreItems">here</a></p>
+<div id="extraversion" class="section level3">
+<h3>Extraversion</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0ZSBkYXRhZnJhbWUgd2l0aCBvbmx5IHJlbGV2YW50IHZhcmlhYmxlcyB0byB3b3JrIHdpdGhcbkV4dHJhdmVyc2lvbiA8LSBkYXRhLmZyYW1lIChkYXRhc2V0JEZGTV8xLCBkYXRhc2V0JEZGTV82LCBkYXRhc2V0JEZGTV8xMSwgZGF0YXNldCRGRk1fMTYsIGRhdGFzZXQkRkZNXzIxLCBkYXRhc2V0JEZGTV8yNiwgZGF0YXNldCRGRk1fMzEsIGRhdGFzZXQkRkZNXzM2KVxuI2NyZWF0ZSBsaXN0IG9mICdrZXlzJy4gVGhlICBudW1iZXJzIGp1c3QgcmVmZXIgdG8gdGhlIG9yZGVyIG9mIHRoZSBxdWVzdGlvbiBpbiB0aGUgZGF0YS5mcmFtZSgpIHlvdSBqdXN0IG1hZGUuIFRoZSBtb3N0IGltcG9ydGFudCB0aGluZyBpcyB0byBtYXJrIHRoZSBxdWVzdGlvbnMgdGhhdCBzaG91bGQgYmUgcmV2ZXJzZWQgc2NvcmVkIHdpdGggYSAnLScuIFxuRXh0cmF2ZXJzaW9uLmtleXMgPC0gbWFrZS5rZXlzKEV4dHJhdmVyc2lvbiwgbGlzdChFeHRyYXZlcnNpb249YygxLC0yLDMsNCwtNSw2LC03LDgpKSlcbiNzY29yZSB0aGUgc2NhbGVcbkV4dHJhdmVyc2lvbi5zY2FsZXMgPC0gc2NvcmVJdGVtcyAoRXh0cmF2ZXJzaW9uLmtleXMsIEV4dHJhdmVyc2lvbilcbiNzYXZlIHRoZSBzY29yZXNcbkV4dHJhdmVyc2lvbi5zY29yZXMgPC0gRXh0cmF2ZXJzaW9uLnNjYWxlcyRzY29yZXNcbiNzYXZlIHRoZSBzY29yZXMgYmFjayBpbiAnZGF0YXNldCdcbmRhdGFzZXQkRXh0cmF2ZXJzaW9uIDwtIEV4dHJhdmVyc2lvbi5zY29yZXNbLF1cbiNwcmludCB0aGUgY3JvbmJhY2ggYWxwaGFcbkV4dHJhdmVyc2lvbi5zY2FsZXMkYWxwaGFcbmBgYCJ9 -->
+<pre class="r"><code>#create dataframe with only relevant variables to work with
+Extraversion &lt;- data.frame (dataset$FFM_1, dataset$FFM_6, dataset$FFM_11, dataset$FFM_16, dataset$FFM_21, dataset$FFM_26, dataset$FFM_31, dataset$FFM_36)
+#create list of 'keys'. The  numbers just refer to the order of the question in the data.frame() you just made. The most important thing is to mark the questions that should be reversed scored with a '-'. 
+Extraversion.keys &lt;- make.keys(Extraversion, list(Extraversion=c(1,-2,3,4,-5,6,-7,8)))
+#score the scale
+Extraversion.scales &lt;- scoreItems (Extraversion.keys, Extraversion)
+#save the scores
+Extraversion.scores &lt;- Extraversion.scales$scores
+#save the scores back in 'dataset'
+dataset$Extraversion &lt;- Extraversion.scores[,]
+#print the cronbach alpha
+Extraversion.scales$alpha</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgRXh0cmF2ZXJzaW9uXG5hbHBoYSAgICAgIDAuNzg4NjFcbiJ9 -->
+<pre><code>      Extraversion
+alpha      0.78861</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="agreeableness" class="section level3">
+<h3>Agreeableness</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0ZSBkYXRhZnJhbWUgd2l0aCBvbmx5IHJlbGV2YW50IHZhcmlhYmxlcyB0byB3b3JrIHdpdGhcbkFncmVlYWJsZW5lc3MgPC0gZGF0YS5mcmFtZSAoZGF0YXNldCRGRk1fMiwgZGF0YXNldCRGRk1fNywgZGF0YXNldCRGRk1fMTIsIGRhdGFzZXQkRkZNXzE3LCBkYXRhc2V0JEZGTV8yMiwgZGF0YXNldCRGRk1fMjcsIGRhdGFzZXQkRkZNXzMyLCBkYXRhc2V0JEZGTV8zNywgZGF0YXNldCRGRk1fNDIpXG5BZ3JlZWFibGVuZXNzLmtleXMgPC0gbWFrZS5rZXlzKEFncmVlYWJsZW5lc3MsIGxpc3QoQWdyZWVhYmxlbmVzcz1jKC0xLDIsLTMsNCw1LC02LDcsLTgsOSkpKVxuQWdyZWVhYmxlbmVzcy5zY2FsZXMgPC0gc2NvcmVJdGVtcyAoQWdyZWVhYmxlbmVzcy5rZXlzLCBBZ3JlZWFibGVuZXNzKVxuQWdyZWVhYmxlbmVzcy5zY29yZXMgPC0gQWdyZWVhYmxlbmVzcy5zY2FsZXMkc2NvcmVzXG5kYXRhc2V0JEFncmVlYWJsZW5lc3MgPC0gQWdyZWVhYmxlbmVzcy5zY29yZXNbLF1cbkFncmVlYWJsZW5lc3Muc2NhbGVzJGFscGhhXG5gYGAifQ== -->
+<pre class="r"><code>#create dataframe with only relevant variables to work with
+Agreeableness &lt;- data.frame (dataset$FFM_2, dataset$FFM_7, dataset$FFM_12, dataset$FFM_17, dataset$FFM_22, dataset$FFM_27, dataset$FFM_32, dataset$FFM_37, dataset$FFM_42)
+Agreeableness.keys &lt;- make.keys(Agreeableness, list(Agreeableness=c(-1,2,-3,4,5,-6,7,-8,9)))
+Agreeableness.scales &lt;- scoreItems (Agreeableness.keys, Agreeableness)
+Agreeableness.scores &lt;- Agreeableness.scales$scores
+dataset$Agreeableness &lt;- Agreeableness.scores[,]
+Agreeableness.scales$alpha</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgQWdyZWVhYmxlbmVzc1xuYWxwaGEgICAgIDAuNzgxMDI1M1xuIn0= -->
+<pre><code>      Agreeableness
+alpha     0.7810253</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="conscientiousness" class="section level3">
+<h3>Conscientiousness</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0ZSBkYXRhZnJhbWUgd2l0aCBvbmx5IHJlbGV2YW50IHZhcmlhYmxlcyB0byB3b3JrIHdpdGhcbkNvbnNjaWVudGlvdXNuZXNzIDwtIGRhdGEuZnJhbWUgKGRhdGFzZXQkRkZNXzMsIGRhdGFzZXQkRkZNXzgsIGRhdGFzZXQkRkZNXzEzLCBkYXRhc2V0JEZGTV8xOCwgZGF0YXNldCRGRk1fMjMsIGRhdGFzZXQkRkZNXzI4LCBkYXRhc2V0JEZGTV8zMywgZGF0YXNldCRGRk1fMzgsIGRhdGFzZXQkRkZNXzQzKVxubXkua2V5cyA8LSBtYWtlLmtleXMoQ29uc2NpZW50aW91c25lc3MsIGxpc3QoQ29uc2NpZW50aW91c25lc3M9YygxLC0yLDMsLTQsLTUsNiw3LDgsLTkpKSlcbm15LnNjYWxlcyA8LSBzY29yZUl0ZW1zIChteS5rZXlzLCBDb25zY2llbnRpb3VzbmVzcylcbm15LnNjb3JlcyA8LSBteS5zY2FsZXMkc2NvcmVzXG5kYXRhc2V0JENvbnNjaWVudGlvdXNuZXNzIDwtIG15LnNjb3Jlc1ssXVxubXkuc2NhbGVzJGFscGhhXG5gYGAifQ== -->
+<pre class="r"><code>#create dataframe with only relevant variables to work with
+Conscientiousness &lt;- data.frame (dataset$FFM_3, dataset$FFM_8, dataset$FFM_13, dataset$FFM_18, dataset$FFM_23, dataset$FFM_28, dataset$FFM_33, dataset$FFM_38, dataset$FFM_43)
+my.keys &lt;- make.keys(Conscientiousness, list(Conscientiousness=c(1,-2,3,-4,-5,6,7,8,-9)))
+my.scales &lt;- scoreItems (my.keys, Conscientiousness)
+my.scores &lt;- my.scales$scores
+dataset$Conscientiousness &lt;- my.scores[,]
+my.scales$alpha</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgQ29uc2NpZW50aW91c25lc3NcbmFscGhhICAgICAgICAgMC43NzgwOTc0XG4ifQ== -->
+<pre><code>      Conscientiousness
+alpha         0.7780974</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="neuroticism" class="section level3">
+<h3>Neuroticism</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0ZSBkYXRhZnJhbWUgd2l0aCBvbmx5IHJlbGV2YW50IHZhcmlhYmxlcyB0byB3b3JrIHdpdGhcbk5ldXJvdGljaXNtIDwtIGRhdGEuZnJhbWUgKGRhdGFzZXQkRkZNXzQsIGRhdGFzZXQkRkZNXzksIGRhdGFzZXQkRkZNXzE0LCBkYXRhc2V0JEZGTV8xOSwgZGF0YXNldCRGRk1fMjQsIGRhdGFzZXQkRkZNXzI5LCBkYXRhc2V0JEZGTV8zNCwgZGF0YXNldCRGRk1fMzkpXG5teS5rZXlzIDwtIG1ha2Uua2V5cyhOZXVyb3RpY2lzbSwgbGlzdChOZXVyb3RpY2lzbT1jKDEsLTIsMyw0LC01LDYsLTcsOCkpKVxubXkuc2NhbGVzIDwtIHNjb3JlSXRlbXMgKG15LmtleXMsIE5ldXJvdGljaXNtKVxubXkuc2NvcmVzIDwtIG15LnNjYWxlcyRzY29yZXNcbmRhdGFzZXQkTmV1cm90aWNpc20gPC0gbXkuc2NvcmVzWyxdXG5teS5zY2FsZXMkYWxwaGFcbmBgYCJ9 -->
+<pre class="r"><code>#create dataframe with only relevant variables to work with
+Neuroticism &lt;- data.frame (dataset$FFM_4, dataset$FFM_9, dataset$FFM_14, dataset$FFM_19, dataset$FFM_24, dataset$FFM_29, dataset$FFM_34, dataset$FFM_39)
+my.keys &lt;- make.keys(Neuroticism, list(Neuroticism=c(1,-2,3,4,-5,6,-7,8)))
+my.scales &lt;- scoreItems (my.keys, Neuroticism)
+my.scores &lt;- my.scales$scores
+dataset$Neuroticism &lt;- my.scores[,]
+my.scales$alpha</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgTmV1cm90aWNpc21cbmFscGhhICAgIDAuODY1MzM0XG4ifQ== -->
+<pre><code>      Neuroticism
+alpha    0.865334</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="openness" class="section level3">
+<h3>Openness</h3>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0ZSBkYXRhZnJhbWUgd2l0aCBvbmx5IHJlbGV2YW50IHZhcmlhYmxlcyB0byB3b3JrIHdpdGhcbk9wZW5uZXNzIDwtIGRhdGEuZnJhbWUgKGRhdGFzZXQkRkZNXzUsIGRhdGFzZXQkRkZNXzEwLCBkYXRhc2V0JEZGTV8xNSwgZGF0YXNldCRGRk1fMjAsIGRhdGFzZXQkRkZNXzI1LCBkYXRhc2V0JEZGTV8zMCwgZGF0YXNldCRGRk1fMzUsIGRhdGFzZXQkRkZNXzQwLCBkYXRhc2V0JEZGTV80MSwgZGF0YXNldCRGRk1fNDQpXG5teS5rZXlzIDwtIG1ha2Uua2V5cyhPcGVubmVzcywgbGlzdChPcGVubmVzcz1jKDEsMiwzLDQsNSw2LC03LDgsLTksMTApKSlcbm15LnNjYWxlcyA8LSBzY29yZUl0ZW1zIChteS5rZXlzLCBPcGVubmVzcylcbm15LnNjb3JlcyA8LSBteS5zY2FsZXMkc2NvcmVzXG5kYXRhc2V0JE9wZW5uZXNzIDwtIG15LnNjb3Jlc1ssXVxubXkuc2NhbGVzJGFscGhhXG5gYGAifQ== -->
+<pre class="r"><code>#create dataframe with only relevant variables to work with
+Openness &lt;- data.frame (dataset$FFM_5, dataset$FFM_10, dataset$FFM_15, dataset$FFM_20, dataset$FFM_25, dataset$FFM_30, dataset$FFM_35, dataset$FFM_40, dataset$FFM_41, dataset$FFM_44)
+my.keys &lt;- make.keys(Openness, list(Openness=c(1,2,3,4,5,6,-7,8,-9,10)))
+my.scales &lt;- scoreItems (my.keys, Openness)
+my.scores &lt;- my.scales$scores
+dataset$Openness &lt;- my.scores[,]
+my.scales$alpha</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgIE9wZW5uZXNzXG5hbHBoYSAwLjc4MDg1OTVcbiJ9 -->
+<pre><code>       Openness
+alpha 0.7808595</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+</div>
+<div id="tidyverse-1" class="section level2">
+<h2>Tidyverse</h2>
+<p>Documentation can be viewed <a href="https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/rowwise">here</a> and <a href="https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/mutate">here</a></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0YXNldCAlPiVcbiAgcm93d2lzZSgpICU+JVxuICBtdXRhdGUoZXh0cmF2ZXJzaW9uVGlkeSA9IG1lYW4oYyhGRk1fMSwgNi1GRk1fNiwgRkZNXzExLCBGRk1fMTYsIDYtRkZNXzIxLCBGRk1fMjYsIDYtRkZNXzMxLCBGRk1fMzYpKSkgLT4gZGF0YXNldFxuYGBgIn0= -->
+<pre class="r"><code>dataset %&gt;%
+  rowwise() %&gt;%
+  mutate(extraversionTidy = mean(c(FFM_1, 6-FFM_6, FFM_11, FFM_16, 6-FFM_21, FFM_26, 6-FFM_31, FFM_36))) -&gt; dataset</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBNYW51YWwiCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazoKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCi0tLQpUaGlzIG1hbnVhbCBpcyBhbiBSIGNoZWF0c2hlZXQgZm9yIFBzeWNob2xvZ3kgc3R1ZGVudHMuIApJdCBleHBsYWlucyBob3cgdG8gY29tcGxldGUgbWFueSB0YXNrcyBwc3ljaG9sb2dpc3RzIGNvbW1vbmx5IGRvLgpDbGljayB0aHJvdWdoIHRoZSB0YWJsZSBvZiBjb250ZW50cyB0byBxdWlja2x5IGZpbmQgdGhlIHRhc2sgeW91IG5lZWQuCgojIEhvdyB0byBpbnN0YWxsIGFuZCBsb2FkIHBhY2FrZ2VzIHsudGFic2V0fQoKIyMgSGF2ZW4KSGF2ZW4gY29udGFpbnMgZnVuY3Rpb25zIHRoYXQgbGV0cyBSIGltcG9ydCBTUFNTLCBTQVMsIFN0YXRhLCBhbmQgb3RoZXIgZm9yZWlnbiBmaWxlcy4KCkRvY3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly9oYXZlbi50aWR5dmVyc2Uub3JnKQpgYGB7cn0KIyBDaGVjayBpZiBoYXZlbiBpcyBhbHJlYWR5IGluc3RhbGxlZCBhbmQgaWYgaXQgaXMsIGxvYWQgaXQuCmlmICghcmVxdWlyZShoYXZlbikpewogICMgSWYgaXQncyBub3QgaW50YWxsZWQsIHRoZW4gdGVsbCBSIHRvIGluc3RhbGwgaXQuCiAgaW5zdGFsbC5wYWNrYWdlcygiaGF2ZW4iLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogICMgT25jZSBpdCdzIGluc3RhbGxlZCwgdGVsbCBSIHRvIGxvYWQgaXQuCiAgbGlicmFyeShoYXZlbikKfQpgYGAKCiMjIFRpZHl2ZXJzZQpUaWR5dmVyc2UgY29udGFpbnMgbWFueSBmdW5jdGlvbnMgdXNlZnVsIHRvIGNsZWFuaW5nLCB0aWR5aW5nLCBhbmQgbWFuaXB1bGF0aW5nIGRhdGEKCkRjb3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly93d3cudGlkeXZlcnNlLm9yZykKCmBgYHtyfQppZiAoIXJlcXVpcmUodGlkeXZlcnNlKSl7CiAgaW5zdGFsbC5wYWNrYWdlcygidGlkeXZlcnNlIiwgZGVwZW5kZW5jaWVzID0gVFJVRSkKICBsaWJyYXJ5KHRpZHl2ZXJzZSkKfQpgYGAKCiMjIHN1bW1hcnl0b29scwoKU3VtbWFyeXRvb2xzIHByb3ZpZGUgdXNlZnVsIGZ1bmN0aW9ucyBmb3Igc3VtbWFyaXppbmcgYW5kIHZpc3VhbGl6aW5nIGRhdGEKCkRvY3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly93d3cucmRvY3VtZW50YXRpb24ub3JnL3BhY2thZ2VzL3N1bW1hcnl0b29scy92ZXJzaW9ucy8wLjguNSkKYGBge3J9CmlmICghcmVxdWlyZShzdW1tYXJ5dG9vbHMpKXsKICBpbnN0YWxsLnBhY2thZ2VzKCJzdW1tYXJ5dG9vbHMiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogIHJlcXVpcmUoc3VtbWFyeXRvb2xzKQp9CmBgYAoKCiMgSW1wb3J0IGFuIFNQU1MgZmlsZQpVc2UgdGhlIHJlYWRfc2F2KCkgZnVuY3Rpb24gZnJvbSB0aGUgSGF2ZW4gcGFja2FnZSB0byBpbXBvcnQgYW4gU1BTUyBmaWxlIGludG8gUi4KCkRjb3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly93d3cucmRvY3VtZW50YXRpb24ub3JnL3BhY2thZ2VzL2hhdmVuL3ZlcnNpb25zLzEuMS4yL3RvcGljcy9yZWFkX3Nwc3MpCmBgYHtyfQpkYXRhc2V0IDwtIHJlYWRfc2F2KCJodHRwczovL29zZi5pby85OG10Ni9kb3dubG9hZCIpCmBgYAoKIyBDbGVhbiBkYXRhc2V0IHsudGFic2V0fQoKIyMgVmlldyBkYXRhc2V0ClVzZSB0aGUgVmlldygpIGZ1bmN0aW9uIHRvIGxvb2sgYXQgeW91ciBkYXRhc2V0IGxpa2UgeW91IHdvdWxkIGluIFNQU1Mgb3IgRXhjZWwKCkRjb3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly93d3cucmRvY3VtZW50YXRpb24ub3JnL3BhY2thZ2VzL3V0aWxzL3ZlcnNpb25zLzMuNS4xL3RvcGljcy9WaWV3KQoKYGBge3J9ClZpZXcoZGF0YXNldCkKYGBgCiMjIFJlbW92ZSBjb2x1bW5zClVzZSB0aGUgU2VsZWN0KCkgZnVuY3Rpb24gdG8gZGUtc2VsZWN0IGEgY29sdW1uLgoKUHV0ICctJyBiZWZvcmUgdGhlIGNvbHVtbiBuYW1lIHRvIHJlbW92ZSBhIGNvbHVtbiAoeW91IGNhbiBsaXN0IG1vcmUgdGhhbiBvbmUgY29sdW1uKS4KCkp1c3QgdHlwZSB0aGUgY29sdW1uIG5hbWUgdG8ga2VlcCBvbmx5IHRoYXQgY29sdW1uICh5b3UgY2FuIGxpc3QgbW9yZSB0aGFuIG9uZSBjb2x1bW4pLgoKRGNvdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvZHBseXIvdmVyc2lvbnMvMC43LjYvdG9waWNzL3NlbGVjdCkKCmBgYHtyfQpkYXRhc2V0ICU+JQogIHNlbGVjdCgtSVBBZGRyZXNzKSAtPiBkYXRhc2V0CmBgYAoKIyMgUmVtb3ZlIHByYWN0aWNlIHJ1bnMKVXNlIHRoZSBzbGljZSgpIGZ1bmNpdG9uIHRvIHJlbW92ZSByb3dzLgoKUHV0IHRoZSByYW5nZSBvZiByb3dzIHlvdSdkIGxpa2UgdG8gcmVtb3ZlIHdpdGggbWludXMgc2lnbnMgaW4gZnJvbnQuCgpEY291bWVudGF0aW9uIGNhbiBiZSB2aWV3ZWQgW2hlcmVdKGh0dHBzOi8vd3d3LnJkb2N1bWVudGF0aW9uLm9yZy9wYWNrYWdlcy9kcGx5ci92ZXJzaW9ucy8wLjcuNi90b3BpY3Mvc2xpY2UpCgpgYGB7cn0KZGF0YXNldCAlPiUgCiAgc2xpY2UoLTE6LTMpIC0+IGRhdGFzZXQKYGBgCgojIFN1bW1hcml6ZSB2YXJpYWJsZXMKCiMjIFVzZSBkZlN1bW1hcnkgZnVuY3Rpb24gZnJvbSBzdW1tYXJ5dG9vbHMgcGFja2FnZSB0byBzdW1tYXJpemUgYW5kIHZpc3VhbGl6ZSBkYXRhCgpEY291bWVudGF0aW9uIGNhbiBiZSB2aWV3ZWQgW2hlcmVdKGh0dHBzOi8vd3d3LnJkb2N1bWVudGF0aW9uLm9yZy9wYWNrYWdlcy9zdW1tYXJ5dG9vbHMvdmVyc2lvbnMvMC44LjUvdG9waWNzL2RmU3VtbWFyeSkKCmBgYHtyfQojRmlyc3Qgc2VsZWN0IHRoZSB2YXJpYWJsZXMgeW91J2QgbGlrZSB0byBzdW1tYXJpemUKZGF0YXNldCAlPiUKICBzZWxlY3QgKENvaW5GbGlwLCBGRk1fNSwgUG90dGVyMykgLT4gZXhhbXBsZURGCgojVGhlbiBwcmludCB0aGVtIHdpdGggdGhpcyBjb21tYW5kCnByaW50KGRmU3VtbWFyeShleGFtcGxlREYsIGdyYXBoLm1hZ25pZiA9IC43NSksIG1ldGhvZCA9ICdyZW5kZXInKQpgYGAKCg==</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBNYW51YWwiCm91dHB1dDogCiAgaHRtbF9ub3RlYm9vazoKICAgIHRoZW1lOiBwYXBlcgogICAgdG9jOiB5ZXMKICAgIHRvY19mbG9hdDogeWVzCi0tLQpUaGlzIG1hbnVhbCBpcyBhbiBSIGNoZWF0c2hlZXQgZm9yIFBzeWNob2xvZ3kgc3R1ZGVudHMuIApJdCBleHBsYWlucyBob3cgdG8gY29tcGxldGUgbWFueSB0YXNrcyBwc3ljaG9sb2dpc3RzIGNvbW1vbmx5IGRvLgpDbGljayB0aHJvdWdoIHRoZSB0YWJsZSBvZiBjb250ZW50cyB0byBxdWlja2x5IGZpbmQgdGhlIHRhc2sgeW91IG5lZWQuCgojIEhvdyB0byBpbnN0YWxsIGFuZCBsb2FkIHBhY2FrZ2VzIHsudGFic2V0fQoKPGlmcmFtZSB3aWR0aD0iNTYwIiBoZWlnaHQ9IjMxNSIgc3JjPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC9obmRNZzdsZEJKayIgZnJhbWVib3JkZXI9IjAiIGFsbG93PSJhdXRvcGxheTsgZW5jcnlwdGVkLW1lZGlhIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+CgojIyBIYXZlbgpIYXZlbiBjb250YWlucyBmdW5jdGlvbnMgdGhhdCBsZXRzIFIgaW1wb3J0IFNQU1MsIFNBUywgU3RhdGEsIGFuZCBvdGhlciBmb3JlaWduIGZpbGVzLgoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL2hhdmVuLnRpZHl2ZXJzZS5vcmcpCmBgYHtyfQojIENoZWNrIGlmIGhhdmVuIGlzIGFscmVhZHkgaW5zdGFsbGVkIGFuZCBpZiBpdCBpcywgbG9hZCBpdC4KaWYgKCFyZXF1aXJlKGhhdmVuKSl7CiAgIyBJZiBpdCdzIG5vdCBpbnRhbGxlZCwgdGhlbiB0ZWxsIFIgdG8gaW5zdGFsbCBpdC4KICBpbnN0YWxsLnBhY2thZ2VzKCJoYXZlbiIsIGRlcGVuZGVuY2llcyA9IFRSVUUpCiAgIyBPbmNlIGl0J3MgaW5zdGFsbGVkLCB0ZWxsIFIgdG8gbG9hZCBpdC4KICBsaWJyYXJ5KGhhdmVuKQp9CmBgYAoKIyMgVGlkeXZlcnNlClRpZHl2ZXJzZSBjb250YWlucyBtYW55IGZ1bmN0aW9ucyB1c2VmdWwgdG8gY2xlYW5pbmcsIHRpZHlpbmcsIGFuZCBtYW5pcHVsYXRpbmcgZGF0YQoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy50aWR5dmVyc2Uub3JnKQoKYGBge3J9CmlmICghcmVxdWlyZSh0aWR5dmVyc2UpKXsKICBpbnN0YWxsLnBhY2thZ2VzKCJ0aWR5dmVyc2UiLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogIGxpYnJhcnkodGlkeXZlcnNlKQp9CmBgYAoKIyMgc3VtbWFyeXRvb2xzCgpTdW1tYXJ5dG9vbHMgcHJvdmlkZSB1c2VmdWwgZnVuY3Rpb25zIGZvciBzdW1tYXJpemluZyBhbmQgdmlzdWFsaXppbmcgZGF0YQoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvc3VtbWFyeXRvb2xzL3ZlcnNpb25zLzAuOC41KQpgYGB7cn0KaWYgKCFyZXF1aXJlKHN1bW1hcnl0b29scykpewogIGluc3RhbGwucGFja2FnZXMoInN1bW1hcnl0b29scyIsIGRlcGVuZGVuY2llcyA9IFRSVUUpCiAgcmVxdWlyZShzdW1tYXJ5dG9vbHMpCn0KYGBgCiMjIHBzeWNoCgpTdW1tYXJ5dG9vbHMgcHJvdmlkZSB1c2VmdWwgZnVuY3Rpb25zIGZvciBzdW1tYXJpemluZyBhbmQgdmlzdWFsaXppbmcgZGF0YQoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvc3VtbWFyeXRvb2xzL3ZlcnNpb25zLzAuOC41KQpgYGB7cn0KaWYgKCFyZXF1aXJlKHBzeWNoKSl7CiAgaW5zdGFsbC5wYWNrYWdlcygicHN5Y2giLCBkZXBlbmRlbmNpZXMgPSBUUlVFKQogIHJlcXVpcmUocHN5Y2gpCn0KYGBgCgoKIyBJbXBvcnQgYW4gU1BTUyBmaWxlCgo8aWZyYW1lIHdpZHRoPSI1NjAiIGhlaWdodD0iMzE1IiBzcmM9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2VtYmVkLzh6cEhjOVU4SElZIiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImF1dG9wbGF5OyBlbmNyeXB0ZWQtbWVkaWEiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4KClVzZSB0aGUgcmVhZF9zYXYoKSBmdW5jdGlvbiBmcm9tIHRoZSBIYXZlbiBwYWNrYWdlIHRvIGltcG9ydCBhbiBTUFNTIGZpbGUgaW50byBSLgoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvaGF2ZW4vdmVyc2lvbnMvMS4xLjIvdG9waWNzL3JlYWRfc3BzcykKYGBge3J9CmRhdGFzZXQgPC0gcmVhZF9zYXYoImh0dHBzOi8vb3NmLmlvLzk4bXQ2L2Rvd25sb2FkIikKYGBgCgojIENsZWFuIGRhdGFzZXQgey50YWJzZXR9Cgo8aWZyYW1lIHdpZHRoPSI1NjAiIGhlaWdodD0iMzE1IiBzcmM9Imh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL2VtYmVkL2dGQUx4a0dmUFFRIiBmcmFtZWJvcmRlcj0iMCIgYWxsb3c9ImF1dG9wbGF5OyBlbmNyeXB0ZWQtbWVkaWEiIGFsbG93ZnVsbHNjcmVlbj48L2lmcmFtZT4KCiMjIFZpZXcgZGF0YXNldApVc2UgdGhlIFZpZXcoKSBmdW5jdGlvbiB0byBsb29rIGF0IHlvdXIgZGF0YXNldCBsaWtlIHlvdSB3b3VsZCBpbiBTUFNTIG9yIEV4Y2VsCgpEb2N1bWVudGF0aW9uIGNhbiBiZSB2aWV3ZWQgW2hlcmVdKGh0dHBzOi8vd3d3LnJkb2N1bWVudGF0aW9uLm9yZy9wYWNrYWdlcy91dGlscy92ZXJzaW9ucy8zLjUuMS90b3BpY3MvVmlldykKCmBgYHtyfQpWaWV3KGRhdGFzZXQpCmBgYAojIyBSZW1vdmUgY29sdW1ucwpVc2UgdGhlIFNlbGVjdCgpIGZ1bmN0aW9uIHRvIGRlLXNlbGVjdCBhIGNvbHVtbi4KClB1dCAnLScgYmVmb3JlIHRoZSBjb2x1bW4gbmFtZSB0byByZW1vdmUgYSBjb2x1bW4gKHlvdSBjYW4gbGlzdCBtb3JlIHRoYW4gb25lIGNvbHVtbikuCgpKdXN0IHR5cGUgdGhlIGNvbHVtbiBuYW1lIHRvIGtlZXAgb25seSB0aGF0IGNvbHVtbiAoeW91IGNhbiBsaXN0IG1vcmUgdGhhbiBvbmUgY29sdW1uKS4KCkRvY3VtZW50YXRpb24gY2FuIGJlIHZpZXdlZCBbaGVyZV0oaHR0cHM6Ly93d3cucmRvY3VtZW50YXRpb24ub3JnL3BhY2thZ2VzL2RwbHlyL3ZlcnNpb25zLzAuNy42L3RvcGljcy9zZWxlY3QpCgpgYGB7cn0KZGF0YXNldCAlPiUKICBzZWxlY3QoLUlQQWRkcmVzcykgLT4gZGF0YXNldApgYGAKCiMjIFJlbW92ZSBwcmFjdGljZSBydW5zClVzZSB0aGUgc2xpY2UoKSBmdW5jaXRvbiB0byByZW1vdmUgcm93cy4KClB1dCB0aGUgcmFuZ2Ugb2Ygcm93cyB5b3UnZCBsaWtlIHRvIHJlbW92ZSB3aXRoIG1pbnVzIHNpZ25zIGluIGZyb250LgoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvZHBseXIvdmVyc2lvbnMvMC43LjYvdG9waWNzL3NsaWNlKQoKYGBge3J9CmRhdGFzZXQgJT4lIAogIHNsaWNlKC0xOi0zKSAtPiBkYXRhc2V0CmBgYAoKIyBTdW1tYXJpemUgdmFyaWFibGVzIHsudGFic2V0fQoKIyMgVXNlIGRmU3VtbWFyeSBmdW5jdGlvbiBmcm9tIHN1bW1hcnl0b29scyBwYWNrYWdlIHRvIHN1bW1hcml6ZSBhbmQgdmlzdWFsaXplIGRhdGEKCjxpZnJhbWUgd2lkdGg9IjU2MCIgaGVpZ2h0PSIzMTUiIHNyYz0iaHR0cHM6Ly93d3cueW91dHViZS5jb20vZW1iZWQvTDhJd1M3c2hpcGciIGZyYW1lYm9yZGVyPSIwIiBhbGxvdz0iYXV0b3BsYXk7IGVuY3J5cHRlZC1tZWRpYSIgYWxsb3dmdWxsc2NyZWVuPjwvaWZyYW1lPgoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvc3VtbWFyeXRvb2xzL3ZlcnNpb25zLzAuOC41L3RvcGljcy9kZlN1bW1hcnkpCgpgYGB7cn0KI0ZpcnN0IHNlbGVjdCB0aGUgdmFyaWFibGVzIHlvdSdkIGxpa2UgdG8gc3VtbWFyaXplCmRhdGFzZXQgJT4lCiAgc2VsZWN0IChDb2luRmxpcCwgRkZNXzUsIFBvdHRlcjMpIC0+IGV4YW1wbGVERgoKI1RoZW4gcHJpbnQgdGhlbSB3aXRoIHRoaXMgY29tbWFuZApwcmludChkZlN1bW1hcnkoZXhhbXBsZURGLCBncmFwaC5tYWduaWYgPSAuNzUpLCBtZXRob2QgPSAncmVuZGVyJykKYGBgCiMjIFVzZSB0aGUgZGVzY3JpYmUoKSBmdW5jdGlvbiBvZiB0aGUgcHN5Y2ggcGFja2FnZSB0byBzdW1tYXJpemUgZGF0YQoKPGlmcmFtZSB3aWR0aD0iNTYwIiBoZWlnaHQ9IjMxNSIgc3JjPSJodHRwczovL3d3dy55b3V0dWJlLmNvbS9lbWJlZC9LODNfdFlYcUZWbyIgZnJhbWVib3JkZXI9IjAiIGFsbG93PSJhdXRvcGxheTsgZW5jcnlwdGVkLW1lZGlhIiBhbGxvd2Z1bGxzY3JlZW4+PC9pZnJhbWU+CgpEb2N1bWVudGF0aW9uIGNhbiBiZSB2aWV3ZWQgW2hlcmVdKGh0dHBzOi8vd3d3LnJkb2N1bWVudGF0aW9uLm9yZy9wYWNrYWdlcy9wc3ljaC92ZXJzaW9ucy8xLjguNC90b3BpY3MvZGVzY3JpYmUpCgpgYGB7cn0KI0ZpcnN0IHNlbGVjdCB0aGUgdmFyaWFibGVzIHlvdSdkIGxpa2UgdG8gc3VtbWFyaXplCmRhdGFzZXQgJT4lCiAgc2VsZWN0IChDb2luRmxpcCwgRkZNXzUsIFBvdHRlcjMpICU+JQogIGRlc2NyaWJlKCkKYGBgCiMgQ3JlYXRlIENvbXBvc2l0ZSBWYXJpYWJsZSB7LnRhYnNldH0KCiMjIFBzeWNoIHsudGFic2V0fQoKRG9jdW1lbnRhdGlvbiBjYW4gYmUgdmlld2VkIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvcHN5Y2gvdmVyc2lvbnMvMS44LjQvdG9waWNzL3Njb3JlSXRlbXMpCgojIyMgRXh0cmF2ZXJzaW9uCmBgYHtyfQojY3JlYXRlIGRhdGFmcmFtZSB3aXRoIG9ubHkgcmVsZXZhbnQgdmFyaWFibGVzIHRvIHdvcmsgd2l0aApFeHRyYXZlcnNpb24gPC0gZGF0YS5mcmFtZSAoZGF0YXNldCRGRk1fMSwgZGF0YXNldCRGRk1fNiwgZGF0YXNldCRGRk1fMTEsIGRhdGFzZXQkRkZNXzE2LCBkYXRhc2V0JEZGTV8yMSwgZGF0YXNldCRGRk1fMjYsIGRhdGFzZXQkRkZNXzMxLCBkYXRhc2V0JEZGTV8zNikKI2NyZWF0ZSBsaXN0IG9mICdrZXlzJy4gVGhlICBudW1iZXJzIGp1c3QgcmVmZXIgdG8gdGhlIG9yZGVyIG9mIHRoZSBxdWVzdGlvbiBpbiB0aGUgZGF0YS5mcmFtZSgpIHlvdSBqdXN0IG1hZGUuIFRoZSBtb3N0IGltcG9ydGFudCB0aGluZyBpcyB0byBtYXJrIHRoZSBxdWVzdGlvbnMgdGhhdCBzaG91bGQgYmUgcmV2ZXJzZWQgc2NvcmVkIHdpdGggYSAnLScuIApFeHRyYXZlcnNpb24ua2V5cyA8LSBtYWtlLmtleXMoRXh0cmF2ZXJzaW9uLCBsaXN0KEV4dHJhdmVyc2lvbj1jKDEsLTIsMyw0LC01LDYsLTcsOCkpKQojc2NvcmUgdGhlIHNjYWxlCkV4dHJhdmVyc2lvbi5zY2FsZXMgPC0gc2NvcmVJdGVtcyAoRXh0cmF2ZXJzaW9uLmtleXMsIEV4dHJhdmVyc2lvbikKI3NhdmUgdGhlIHNjb3JlcwpFeHRyYXZlcnNpb24uc2NvcmVzIDwtIEV4dHJhdmVyc2lvbi5zY2FsZXMkc2NvcmVzCiNzYXZlIHRoZSBzY29yZXMgYmFjayBpbiAnZGF0YXNldCcKZGF0YXNldCRFeHRyYXZlcnNpb24gPC0gRXh0cmF2ZXJzaW9uLnNjb3Jlc1ssXQojcHJpbnQgdGhlIGNyb25iYWNoIGFscGhhCkV4dHJhdmVyc2lvbi5zY2FsZXMkYWxwaGEKYGBgCiMjIyBBZ3JlZWFibGVuZXNzCmBgYHtyfQojY3JlYXRlIGRhdGFmcmFtZSB3aXRoIG9ubHkgcmVsZXZhbnQgdmFyaWFibGVzIHRvIHdvcmsgd2l0aApBZ3JlZWFibGVuZXNzIDwtIGRhdGEuZnJhbWUgKGRhdGFzZXQkRkZNXzIsIGRhdGFzZXQkRkZNXzcsIGRhdGFzZXQkRkZNXzEyLCBkYXRhc2V0JEZGTV8xNywgZGF0YXNldCRGRk1fMjIsIGRhdGFzZXQkRkZNXzI3LCBkYXRhc2V0JEZGTV8zMiwgZGF0YXNldCRGRk1fMzcsIGRhdGFzZXQkRkZNXzQyKQpBZ3JlZWFibGVuZXNzLmtleXMgPC0gbWFrZS5rZXlzKEFncmVlYWJsZW5lc3MsIGxpc3QoQWdyZWVhYmxlbmVzcz1jKC0xLDIsLTMsNCw1LC02LDcsLTgsOSkpKQpBZ3JlZWFibGVuZXNzLnNjYWxlcyA8LSBzY29yZUl0ZW1zIChBZ3JlZWFibGVuZXNzLmtleXMsIEFncmVlYWJsZW5lc3MpCkFncmVlYWJsZW5lc3Muc2NvcmVzIDwtIEFncmVlYWJsZW5lc3Muc2NhbGVzJHNjb3JlcwpkYXRhc2V0JEFncmVlYWJsZW5lc3MgPC0gQWdyZWVhYmxlbmVzcy5zY29yZXNbLF0KQWdyZWVhYmxlbmVzcy5zY2FsZXMkYWxwaGEKYGBgCiMjIyBDb25zY2llbnRpb3VzbmVzcwpgYGB7cn0KI2NyZWF0ZSBkYXRhZnJhbWUgd2l0aCBvbmx5IHJlbGV2YW50IHZhcmlhYmxlcyB0byB3b3JrIHdpdGgKQ29uc2NpZW50aW91c25lc3MgPC0gZGF0YS5mcmFtZSAoZGF0YXNldCRGRk1fMywgZGF0YXNldCRGRk1fOCwgZGF0YXNldCRGRk1fMTMsIGRhdGFzZXQkRkZNXzE4LCBkYXRhc2V0JEZGTV8yMywgZGF0YXNldCRGRk1fMjgsIGRhdGFzZXQkRkZNXzMzLCBkYXRhc2V0JEZGTV8zOCwgZGF0YXNldCRGRk1fNDMpCm15LmtleXMgPC0gbWFrZS5rZXlzKENvbnNjaWVudGlvdXNuZXNzLCBsaXN0KENvbnNjaWVudGlvdXNuZXNzPWMoMSwtMiwzLC00LC01LDYsNyw4LC05KSkpCm15LnNjYWxlcyA8LSBzY29yZUl0ZW1zIChteS5rZXlzLCBDb25zY2llbnRpb3VzbmVzcykKbXkuc2NvcmVzIDwtIG15LnNjYWxlcyRzY29yZXMKZGF0YXNldCRDb25zY2llbnRpb3VzbmVzcyA8LSBteS5zY29yZXNbLF0KbXkuc2NhbGVzJGFscGhhCmBgYAojIyMgTmV1cm90aWNpc20KYGBge3J9CiNjcmVhdGUgZGF0YWZyYW1lIHdpdGggb25seSByZWxldmFudCB2YXJpYWJsZXMgdG8gd29yayB3aXRoCk5ldXJvdGljaXNtIDwtIGRhdGEuZnJhbWUgKGRhdGFzZXQkRkZNXzQsIGRhdGFzZXQkRkZNXzksIGRhdGFzZXQkRkZNXzE0LCBkYXRhc2V0JEZGTV8xOSwgZGF0YXNldCRGRk1fMjQsIGRhdGFzZXQkRkZNXzI5LCBkYXRhc2V0JEZGTV8zNCwgZGF0YXNldCRGRk1fMzkpCm15LmtleXMgPC0gbWFrZS5rZXlzKE5ldXJvdGljaXNtLCBsaXN0KE5ldXJvdGljaXNtPWMoMSwtMiwzLDQsLTUsNiwtNyw4KSkpCm15LnNjYWxlcyA8LSBzY29yZUl0ZW1zIChteS5rZXlzLCBOZXVyb3RpY2lzbSkKbXkuc2NvcmVzIDwtIG15LnNjYWxlcyRzY29yZXMKZGF0YXNldCROZXVyb3RpY2lzbSA8LSBteS5zY29yZXNbLF0KbXkuc2NhbGVzJGFscGhhCmBgYAojIyMgT3Blbm5lc3MKYGBge3J9CiNjcmVhdGUgZGF0YWZyYW1lIHdpdGggb25seSByZWxldmFudCB2YXJpYWJsZXMgdG8gd29yayB3aXRoCk9wZW5uZXNzIDwtIGRhdGEuZnJhbWUgKGRhdGFzZXQkRkZNXzUsIGRhdGFzZXQkRkZNXzEwLCBkYXRhc2V0JEZGTV8xNSwgZGF0YXNldCRGRk1fMjAsIGRhdGFzZXQkRkZNXzI1LCBkYXRhc2V0JEZGTV8zMCwgZGF0YXNldCRGRk1fMzUsIGRhdGFzZXQkRkZNXzQwLCBkYXRhc2V0JEZGTV80MSwgZGF0YXNldCRGRk1fNDQpCm15LmtleXMgPC0gbWFrZS5rZXlzKE9wZW5uZXNzLCBsaXN0KE9wZW5uZXNzPWMoMSwyLDMsNCw1LDYsLTcsOCwtOSwxMCkpKQpteS5zY2FsZXMgPC0gc2NvcmVJdGVtcyAobXkua2V5cywgT3Blbm5lc3MpCm15LnNjb3JlcyA8LSBteS5zY2FsZXMkc2NvcmVzCmRhdGFzZXQkT3Blbm5lc3MgPC0gbXkuc2NvcmVzWyxdCm15LnNjYWxlcyRhbHBoYQpgYGAKIyMgVGlkeXZlcnNlCgpEb2N1bWVudGF0aW9uIGNhbiBiZSB2aWV3ZWQgW2hlcmVdKGh0dHBzOi8vd3d3LnJkb2N1bWVudGF0aW9uLm9yZy9wYWNrYWdlcy9kcGx5ci92ZXJzaW9ucy8wLjcuNi90b3BpY3Mvcm93d2lzZSkgYW5kIFtoZXJlXShodHRwczovL3d3dy5yZG9jdW1lbnRhdGlvbi5vcmcvcGFja2FnZXMvcGx5ci92ZXJzaW9ucy8xLjguNC90b3BpY3MvbXV0YXRlKQoKYGBge3J9CmRhdGFzZXQgJT4lCiAgcm93d2lzZSgpICU+JQogIG11dGF0ZShleHRyYXZlcnNpb25UaWR5ID0gbWVhbihjKEZGTV8xLCA2LUZGTV82LCBGRk1fMTEsIEZGTV8xNiwgNi1GRk1fMjEsIEZGTV8yNiwgNi1GRk1fMzEsIEZGTV8zNikpKSAtPiBkYXRhc2V0CmBgYA==</div>
 
 
 </div>

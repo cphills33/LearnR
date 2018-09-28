@@ -38,8 +38,23 @@ if (!require(tidyverse)){
 }
 ```
 
+## summarytools
+
+Summarytools provide useful functions for summarizing and visualizing data
+
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/summarytools/versions/0.8.5)
+```{r}
+if (!require(summarytools)){
+  install.packages("summarytools", dependencies = TRUE)
+  require(summarytools)
+}
+```
+
+
 # Import an SPSS file
 Use the read_sav() function from the Haven package to import an SPSS file into R.
+
+Dcoumentation can be viewed [here](https://www.rdocumentation.org/packages/haven/versions/1.1.2/topics/read_spss)
 ```{r}
 dataset <- read_sav("https://osf.io/98mt6/download")
 ```
@@ -48,6 +63,9 @@ dataset <- read_sav("https://osf.io/98mt6/download")
 
 ## View dataset
 Use the View() function to look at your dataset like you would in SPSS or Excel
+
+Dcoumentation can be viewed [here](https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/View)
+
 ```{r}
 View(dataset)
 ```
@@ -57,6 +75,9 @@ Use the Select() function to de-select a column.
 Put '-' before the column name to remove a column (you can list more than one column).
 
 Just type the column name to keep only that column (you can list more than one column).
+
+Dcoumentation can be viewed [here](https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/select)
+
 ```{r}
 dataset %>%
   select(-IPAddress) -> dataset
@@ -67,8 +88,25 @@ Use the slice() funciton to remove rows.
 
 Put the range of rows you'd like to remove with minus signs in front.
 
+Dcoumentation can be viewed [here](https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/slice)
+
 ```{r}
 dataset %>% 
   slice(-1:-3) -> dataset
+```
+
+# Summarize variables
+
+## Use dfSummary function from summarytools package to summarize and visualize data
+
+Dcoumentation can be viewed [here](https://www.rdocumentation.org/packages/summarytools/versions/0.8.5/topics/dfSummary)
+
+```{r}
+#First select the variables you'd like to summarize
+dataset %>%
+  select (CoinFlip, FFM_5, Potter3) -> exampleDF
+
+#Then print them with this command
+print(dfSummary(exampleDF, graph.magnif = .75), method = 'render')
 ```
 

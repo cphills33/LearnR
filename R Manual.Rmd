@@ -145,6 +145,8 @@ dataset %>%
 
 ## Psych {.tabset}
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_-MHH5HES08" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 Documentation can be viewed [here](https://www.rdocumentation.org/packages/psych/versions/1.8.4/topics/scoreItems)
 
 ### Extraversion
@@ -203,6 +205,8 @@ dataset$Openness <- my.scores[,]
 my.scales$alpha
 ```
 ## Tidyverse
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/5wgvw8VU1jE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 Documentation can be viewed [here](https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/rowwise) and [here](https://www.rdocumentation.org/packages/plyr/versions/1.8.4/topics/mutate)
 

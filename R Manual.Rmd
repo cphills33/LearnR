@@ -9,6 +9,15 @@ output:
 This manual is an R cheatsheet for Psychology students. 
 It explains how to complete many tasks psychologists commonly do.
 Click through the table of contents to quickly find the task you need.
+Watch this video to learn how to install R and RStudio:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OkNIR-BPCMA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+
+* [Download R](https://www.r-project.org)
+* [Download RStudio](https://www.rstudio.com/products/rstudio/download/)
+
+# Working with R Notebooks
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Qs_6A_TJHKI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 # How to install and load pacakges {.tabset}
 
@@ -113,6 +122,23 @@ dataset %>%
   slice(-1:-3) -> dataset
 ```
 
+## Recode variables {.tabset}
+
+Use the tidyverse, mutate, and case_when to recode variables
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/dplyr/versions/0.7.6/topics/case_when)
+
+### Recode to a factor
+```{r}
+dataset %>%
+  mutate(CoinFlipFactor = case_when(CoinFlip==1 ~ "Heads",
+                                    CoinFlip==2 ~ "Tails")) -> dataset
+```
+### Recode to a dummy variable
+```{r}
+dataset %>%
+  mutate(FlipHeadsDummy = case_when(CoinFlip==1 ~ 1,
+                                   CoinFlip==2 ~ 0)) -> dataset
+```
 # Summarize variables {.tabset}
 
 ## Use dfSummary function from summarytools package to summarize and visualize data

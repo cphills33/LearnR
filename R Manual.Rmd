@@ -96,6 +96,17 @@ Documentation can be viewed [here](https://www.rdocumentation.org/packages/utils
 ```{r}
 View(dataset)
 ```
+
+## View questions or 'labels'
+This is useful if you used haven to import an SPSS file created by Qualtrics
+
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/purrr/versions/0.2.2.2)
+```{r}
+dataset %>%
+  map(~ attr(., "label"))
+```
+
+
 ## Remove columns
 Use the Select() function to de-select a column.
 

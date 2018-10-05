@@ -71,8 +71,28 @@ if (!require(psych)){
   require(psych)
 }
 ```
+## corrr
 
+quick and easy correlations
 
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/corrr/versions/0.3.0)
+```{r}
+if (!require(corrr)){
+  install.packages("corrr", dependencies = TRUE)
+  require(corrr)
+}
+```
+## GGally
+
+quick and easy correlations
+
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/GGally/versions/1.4.0)
+```{r}
+if (!require(GGally)){
+  install.packages("GGally", dependencies = TRUE)
+  require(GGally)
+}
+```
 # Import an SPSS file
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/8zpHc9U8HIY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -94,7 +114,7 @@ Use the View() function to look at your dataset like you would in SPSS or Excel
 Documentation can be viewed [here](https://www.rdocumentation.org/packages/utils/versions/3.5.1/topics/View)
 
 ```{r}
-View(dataset)
+#View(dataset)
 ```
 
 ## View questions or 'labels'
@@ -251,4 +271,64 @@ Documentation can be viewed [here](https://www.rdocumentation.org/packages/dplyr
 dataset %>%
   rowwise() %>%
   mutate(extraversionTidy = mean(c(FFM_1, 6-FFM_6, FFM_11, FFM_16, 6-FFM_21, FFM_26, 6-FFM_31, FFM_36))) -> dataset
+```
+# Correlations {.tabset}
+
+## Calculate correlations {.tabset}
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YNvGab4gMvM" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+### Explore correlations
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/corrr/versions/0.3.0/vignettes/using-corrr.Rmd) 
+
+```{r}
+dataset %>%
+  select(Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) %>%
+  correlate() %>%
+  shave() %>%
+  fashion()
+```
+### Calculate p-values
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/psych/versions/1.8.4/topics/corr.test) 
+
+```{r}
+dataset %>%
+  select(Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) -> Big5df
+
+corr.test(x = Big5df, 
+          y = NULL,
+          use = "pairwise",
+          method = "pearson",
+          adjust = "holm", 
+          alpha = .05,
+          ci = TRUE)
+
+```
+## Deciding between Pearson and Spearman correlations
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sFsoXbJ85lw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/GGally/versions/1.4.0/topics/ggpairs) 
+
+```{r}
+dataset %>%
+  select(Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism) %>%
+  ggpairs()
+```
+
+# *t*-tests {.tabset}
+Documentation can be viewed [here](https://www.rdocumentation.org/packages/stats/versions/3.5.1/topics/t.test) 
+
+## independent samples *t*-tests
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MfEOatM3dhc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+```{r}
+dataset %>%
+  with(t.test(Agreeableness ~ CoinFlipFactor))
+```
+
+## paired samples *t*-tests
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/nI6xgdP-mLU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+```{r}
+dataset %>%
+  with(t.test(Agreeableness, Neuroticism, paired = TRUE))
 ```
